@@ -12,6 +12,11 @@
 		D7CAB2A7214C0655000D7151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CAB2A6214C0655000D7151 /* Assets.xcassets */; };
 		D7CAB2AA214C0655000D7151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7CAB2A8214C0655000D7151 /* LaunchScreen.storyboard */; };
 		D7CAB2AD214C0655000D7151 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2AC214C0655000D7151 /* main.m */; };
+		D7CAB2BA214C0822000D7151 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7CAB2B9214C0822000D7151 /* APIKeys.plist */; };
+		D7CAB2BD214C08CA000D7151 /* JTGMovieSearchClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2BC214C08CA000D7151 /* JTGMovieSearchClient.m */; };
+		D7CAB2C3214C0A14000D7151 /* JTGSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2C2214C0A14000D7151 /* JTGSearchTableViewCell.m */; };
+		D7CAB2C6214C0C10000D7151 /* JTGMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2C5214C0C10000D7151 /* JTGMovie.m */; };
+		D7CAB2C9214C139E000D7151 /* JTGSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2C8214C139E000D7151 /* JTGSearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,15 @@
 		D7CAB2A9214C0655000D7151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7CAB2AB214C0655000D7151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7CAB2AC214C0655000D7151 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D7CAB2B9214C0822000D7151 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		D7CAB2BB214C08CA000D7151 /* JTGMovieSearchClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTGMovieSearchClient.h; sourceTree = "<group>"; };
+		D7CAB2BC214C08CA000D7151 /* JTGMovieSearchClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTGMovieSearchClient.m; sourceTree = "<group>"; };
+		D7CAB2C1214C0A14000D7151 /* JTGSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTGSearchTableViewCell.h; sourceTree = "<group>"; };
+		D7CAB2C2214C0A14000D7151 /* JTGSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTGSearchTableViewCell.m; sourceTree = "<group>"; };
+		D7CAB2C4214C0C10000D7151 /* JTGMovie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTGMovie.h; sourceTree = "<group>"; };
+		D7CAB2C5214C0C10000D7151 /* JTGMovie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTGMovie.m; sourceTree = "<group>"; };
+		D7CAB2C7214C139D000D7151 /* Movie.io-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movie.io-Bridging-Header.h"; sourceTree = "<group>"; };
+		D7CAB2C8214C139E000D7151 /* JTGSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTGSearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +72,7 @@
 				D7CAB2B7214C06A8000D7151 /* Model */,
 				D7CAB2B5214C06A8000D7151 /* View */,
 				D7CAB2B8214C06A8000D7151 /* ViewController */,
-				D7CAB2B6214C06A8000D7151 /* Network */,
+				D7CAB2B6214C06A8000D7151 /* Networking */,
 				D7CAB2B4214C068D000D7151 /* UI */,
 				D7CAB2B3214C0686000D7151 /* Resources */,
 			);
@@ -73,6 +87,7 @@
 				D7CAB2A6214C0655000D7151 /* Assets.xcassets */,
 				D7CAB2A8214C0655000D7151 /* LaunchScreen.storyboard */,
 				D7CAB2AB214C0655000D7151 /* Info.plist */,
+				D7CAB2B9214C0822000D7151 /* APIKeys.plist */,
 				D7CAB2AC214C0655000D7151 /* main.m */,
 			);
 			path = Resources;
@@ -89,20 +104,26 @@
 		D7CAB2B5214C06A8000D7151 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D7CAB2C1214C0A14000D7151 /* JTGSearchTableViewCell.h */,
+				D7CAB2C2214C0A14000D7151 /* JTGSearchTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		D7CAB2B6214C06A8000D7151 /* Network */ = {
+		D7CAB2B6214C06A8000D7151 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D7CAB2BB214C08CA000D7151 /* JTGMovieSearchClient.h */,
+				D7CAB2BC214C08CA000D7151 /* JTGMovieSearchClient.m */,
 			);
-			path = Network;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		D7CAB2B7214C06A8000D7151 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D7CAB2C4214C0C10000D7151 /* JTGMovie.h */,
+				D7CAB2C5214C0C10000D7151 /* JTGMovie.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +131,8 @@
 		D7CAB2B8214C06A8000D7151 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D7CAB2C8214C139E000D7151 /* JTGSearchTableViewController.swift */,
+				D7CAB2C7214C139D000D7151 /* Movie.io-Bridging-Header.h */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -140,11 +163,13 @@
 		D7CAB292214C0654000D7151 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = JTG;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Jason Goodney";
 				TargetAttributes = {
 					D7CAB299214C0654000D7151 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -172,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7CAB2AA214C0655000D7151 /* LaunchScreen.storyboard in Resources */,
+				D7CAB2BA214C0822000D7151 /* APIKeys.plist in Resources */,
 				D7CAB2A7214C0655000D7151 /* Assets.xcassets in Resources */,
 				D7CAB2A5214C0654000D7151 /* Main.storyboard in Resources */,
 			);
@@ -185,6 +211,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7CAB2AD214C0655000D7151 /* main.m in Sources */,
+				D7CAB2C3214C0A14000D7151 /* JTGSearchTableViewCell.m in Sources */,
+				D7CAB2C6214C0C10000D7151 /* JTGMovie.m in Sources */,
+				D7CAB2C9214C139E000D7151 /* JTGSearchTableViewController.swift in Sources */,
+				D7CAB2BD214C08CA000D7151 /* JTGMovieSearchClient.m in Sources */,
 				D7CAB29F214C0654000D7151 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,15 +355,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2R548H5LT;
-				INFOPLIST_FILE = Movie.io/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Movie.io/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasongoodney.Movie-io";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movie.io/ViewController/Movie.io-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -342,15 +376,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2R548H5LT;
-				INFOPLIST_FILE = Movie.io/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Movie.io/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasongoodney.Movie-io";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Movie.io/ViewController/Movie.io-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
