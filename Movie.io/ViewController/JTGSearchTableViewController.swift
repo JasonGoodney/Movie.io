@@ -25,6 +25,20 @@ class JTGSearchTableViewController: UITableViewController {
         movieSearchBar.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        deselectCell()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as? JTGMovieDetailViewController
+        
+        guard let index = tableView.indexPathForSelectedRow?.row,
+            let movie = movies?[index] else { return }
+        
+        destinationVC?.movie = movie
+    }
 }
 
 // MARK: - Update View
@@ -35,7 +49,15 @@ extension JTGSearchTableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    func deselectCell() {
+        if let index = self.tableView.indexPathForSelectedRow{
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
 }
+
+
 
 // MARK: - UITableViewDataSource
 extension JTGSearchTableViewController {
@@ -58,6 +80,19 @@ extension JTGSearchTableViewController {
 
 // MARK: - UITableViewDelegate
 extension JTGSearchTableViewController {
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard let movies = movies else { return }
+//        
+//        let movie = movies[indexPath.row]
+//        
+//        let id = movie.identifier;
+//        
+//        
+//        
+//        
+//        
+//    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 192
     }

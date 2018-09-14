@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "JTGMovie.h"
 
+
 @interface JTGSearchTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *overviewLabel;
+//@property (weak, nonatomic, nullable)
 
 @property (nonatomic) JTGMovie *movie;
 

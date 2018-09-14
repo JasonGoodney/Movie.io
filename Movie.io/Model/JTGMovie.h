@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JTGMovieTrailer.h"
 
 @interface JTGMovie : NSObject
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *overview;
 @property (nonatomic, copy) NSNumber *rating;
+@property (nonatomic, copy) NSNumber *identifier;
+@property (nonatomic) JTGMovieTrailer *movieTrailer;
+
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
 

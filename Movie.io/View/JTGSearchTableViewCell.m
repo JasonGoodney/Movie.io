@@ -19,7 +19,9 @@
     
     _titleLabel.text = movie.title;
     _overviewLabel.text = movie.overview;
-    _ratingLabel.text = [NSString stringWithFormat:@"%@", movie.rating];
+    
+    _ratingLabel.text = [NSString stringWithFormat:@"Rating: %@", movie.rating];
 }
+
 
 @end

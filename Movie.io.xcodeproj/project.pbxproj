@@ -17,6 +17,8 @@
 		D7CAB2C3214C0A14000D7151 /* JTGSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2C2214C0A14000D7151 /* JTGSearchTableViewCell.m */; };
 		D7CAB2C6214C0C10000D7151 /* JTGMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2C5214C0C10000D7151 /* JTGMovie.m */; };
 		D7CAB2C9214C139E000D7151 /* JTGSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2C8214C139E000D7151 /* JTGSearchTableViewController.swift */; };
+		D7CAB2CC214C1C22000D7151 /* JTGMovieTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2CB214C1C22000D7151 /* JTGMovieTrailer.m */; };
+		D7CAB2D1214C31D9000D7151 /* JTGMovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CAB2D0214C31D8000D7151 /* JTGMovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		D7CAB2C5214C0C10000D7151 /* JTGMovie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTGMovie.m; sourceTree = "<group>"; };
 		D7CAB2C7214C139D000D7151 /* Movie.io-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movie.io-Bridging-Header.h"; sourceTree = "<group>"; };
 		D7CAB2C8214C139E000D7151 /* JTGSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTGSearchTableViewController.swift; sourceTree = "<group>"; };
+		D7CAB2CA214C1C22000D7151 /* JTGMovieTrailer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTGMovieTrailer.h; sourceTree = "<group>"; };
+		D7CAB2CB214C1C22000D7151 /* JTGMovieTrailer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTGMovieTrailer.m; sourceTree = "<group>"; };
+		D7CAB2D0214C31D8000D7151 /* JTGMovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTGMovieDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +129,8 @@
 			children = (
 				D7CAB2C4214C0C10000D7151 /* JTGMovie.h */,
 				D7CAB2C5214C0C10000D7151 /* JTGMovie.m */,
+				D7CAB2CA214C1C22000D7151 /* JTGMovieTrailer.h */,
+				D7CAB2CB214C1C22000D7151 /* JTGMovieTrailer.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				D7CAB2C8214C139E000D7151 /* JTGSearchTableViewController.swift */,
+				D7CAB2D0214C31D8000D7151 /* JTGMovieDetailViewController.swift */,
 				D7CAB2C7214C139D000D7151 /* Movie.io-Bridging-Header.h */,
 			);
 			path = ViewController;
@@ -210,9 +218,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7CAB2CC214C1C22000D7151 /* JTGMovieTrailer.m in Sources */,
 				D7CAB2AD214C0655000D7151 /* main.m in Sources */,
 				D7CAB2C3214C0A14000D7151 /* JTGSearchTableViewCell.m in Sources */,
 				D7CAB2C6214C0C10000D7151 /* JTGMovie.m in Sources */,
+				D7CAB2D1214C31D9000D7151 /* JTGMovieDetailViewController.swift in Sources */,
 				D7CAB2C9214C139E000D7151 /* JTGSearchTableViewController.swift in Sources */,
 				D7CAB2BD214C08CA000D7151 /* JTGMovieSearchClient.m in Sources */,
 				D7CAB29F214C0654000D7151 /* AppDelegate.m in Sources */,
@@ -364,7 +374,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasongoodney.Movie-io";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Movie.io;
 				SWIFT_OBJC_BRIDGING_HEADER = "Movie.io/ViewController/Movie.io-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -385,7 +395,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasongoodney.Movie-io";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Movie.io;
 				SWIFT_OBJC_BRIDGING_HEADER = "Movie.io/ViewController/Movie.io-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
