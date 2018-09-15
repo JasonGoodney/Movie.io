@@ -11,6 +11,7 @@
 @interface JTGMovieSearchClient ()
 
 + (NSURL *) baseURL;
++ (NSURL *) baseImageURL;
 + (NSURL *) movieSearchURL;
 + (NSURL *)movieURLForId:(NSString *)identifier;
 
@@ -20,6 +21,10 @@
 
 + (NSURL *) baseURL {
     return [[NSURL alloc] initWithString:@"https://api.themoviedb.org/3"];
+}
+
++ (NSURL *)baseImageURL {
+    return [[NSURL alloc] initWithString:@"https://image.tmdb.org/t/p/w500/"];
 }
 
 + (NSURL *)movieSearchURL {
@@ -77,19 +82,20 @@
         
         NSDictionary *topLevelDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
         NSArray<NSDictionary *> *searchResultsArray = topLevelDictionary[@"results"];
+        
         NSMutableArray<JTGMovie *> *movies = [[NSMutableArray alloc] init];
         
         for (NSDictionary *movieDict in searchResultsArray) {
             JTGMovie *movie = [[JTGMovie alloc] initWithDictionary:movieDict];
             [movies addObject:movie];
         }
+        block(movies); 
         
-        block(movies);
     }] resume];
 }
 
 
-+ (void)fetchYoutubeTrailerForMovieId:(NSNumber *)identifier withBlock:(void (^)(JTGMovieTrailer * _Nullable))block {
++ (void)fetchYoutubeTrailerForMovieId:(NSNumber *)identifier withBlock:(void (^)(JTGMovie * _Nullable))block {
     
     NSURLComponents *components = [[NSURLComponents alloc]
                                    initWithURL:[JTGMovieSearchClient movieURLForId:[identifier stringValue]] resolvingAgainstBaseURL:YES];
@@ -98,7 +104,7 @@
     components.queryItems = @[apiKeyQueryItem, videosQueryItem];
     NSURL *url = components.URL;
     
-    NSLog(@"%@", [url absoluteString]);
+//    NSLog(@"%@", [url absoluteString]);
     
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
@@ -119,11 +125,17 @@
         NSDictionary *movieTrailerDictionary = topLevelDictionary[@"videos"][@"results"][0];
         
         JTGMovieTrailer *movieTrailer = [[JTGMovieTrailer alloc] initWithDictionary:movieTrailerDictionary];
+        JTGMovie *movie = [[JTGMovie alloc] initWithDictionary:topLevelDictionary];
+        movie.movieTrailer = movieTrailer;
         
-        block(movieTrailer);
+        block(movie);
     }] resume];
+}
+
++ (void)fetchMoviePosterForMovie:(JTGMovie *)movie withBlock:(void (^)(int * _Nullable))block {
     
 }
+
 
 @end
 

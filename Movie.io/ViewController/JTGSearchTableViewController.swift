@@ -14,7 +14,7 @@ class JTGSearchTableViewController: UITableViewController {
     
     var movies: [JTGMovie]? {
         didSet {
-            loadViewIfNeeded()
+            //loadViewIfNeeded()
             reloadTableView()
         }
     }
@@ -23,6 +23,11 @@ class JTGSearchTableViewController: UITableViewController {
         super.viewDidLoad()
 
         movieSearchBar.delegate = self
+        
+        JTGMovieSearchClient.searchForMovies(withSearchTerm: "Iron Man") { (movies) in
+        
+            self.movies = movies
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +42,11 @@ class JTGSearchTableViewController: UITableViewController {
         guard let index = tableView.indexPathForSelectedRow?.row,
             let movie = movies?[index] else { return }
         
-        destinationVC?.movie = movie
+        //guard let movie = movie else { return }
+        JTGMovieSearchClient.fetchYoutubeTrailer(forMovieId: movie.identifier) { (movie) in
+            destinationVC?.movie = movie
+            
+        }
     }
 }
 
@@ -82,20 +91,25 @@ extension JTGSearchTableViewController {
 extension JTGSearchTableViewController {
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        guard let movies = movies else { return }
-//        
+//
 //        let movie = movies[indexPath.row]
-//        
+//
 //        let id = movie.identifier;
-//        
-//        
-//        
-//        
-//        
+//        let detailVC = JTGMovieDetailViewController()
+//        detailVC.movie = movie
+//
+//
+//        self.navigationController?.pushViewController(detailVC, animated: true)
+//
+//
+//
 //    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 192
     }
+    
+    
 }
 
 // MARK: - UISearchBarDelegate

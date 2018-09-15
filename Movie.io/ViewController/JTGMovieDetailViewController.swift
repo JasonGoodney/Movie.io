@@ -14,27 +14,34 @@ class JTGMovieDetailViewController: UIViewController, SFSafariViewControllerDele
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!    
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var taglineLabel: UILabel!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var homepageLabel: UILabel!
     
     var movie: JTGMovie? {
         didSet {
             loadViewIfNeeded()
-            updateView()
+              updateView()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        updateView()
     }
 
     func updateView() {
         guard let movie = movie else { return }
-        titleLabel.text = movie.title
-        overviewLabel.text = movie.overview
-        ratingLabel.text = "Rating: \(movie.rating!)"
+        DispatchQueue.main.async {
+            self.titleLabel.text = movie.title
+            self.overviewLabel.text = movie.overview
+            self.ratingLabel.text = "Rating: \(movie.rating)"
+            self.taglineLabel.text = movie.tagline
+            self.homepageLabel.text = movie.homepage
+        }
     }
-   
+
 }
 
 // MARK: - Actions
@@ -42,13 +49,7 @@ extension JTGMovieDetailViewController {
     
     @IBAction func youtubeTrailerButtonTapped(_ sender: UIButton) {
         guard let movie = movie else { return }
-        JTGMovieSearchClient.fetchYoutubeTrailer(forMovieId: movie.identifier) { (movieTrailer) in
-            guard let movieTrailer = movieTrailer else { return }
-            movie.movieTrailer = movieTrailer
-            
-            self.playTrailer(forId: movie.movieTrailer.youtubeTrailerVideoId)
-        }
-        
+        self.playTrailer(forId: movie.movieTrailer.youtubeTrailerVideoId)
     }
     
     func playTrailer(forId videoId: String) {

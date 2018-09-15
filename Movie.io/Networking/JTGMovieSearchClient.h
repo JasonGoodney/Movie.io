@@ -13,8 +13,11 @@
 @interface JTGMovieSearchClient : NSObject
 
 + (void) searchForMoviesWithSearchTerm:(NSString *)searchTerm
-                            withBlock:(void(^)(NSArray<JTGMovie *> * _Nullable movies))block;
+                            withBlock:(void(^_Nullable)(NSArray<JTGMovie *> * _Nullable movies))block;
 
 + (void) fetchYoutubeTrailerForMovieId:(NSNumber *)identifier
-                             withBlock:(void(^)(JTGMovieTrailer * _Nullable movieTrailer))block;
+                             withBlock:(void(^_Nullable)(JTGMovie * _Nullable movie))block;
+
++ (void) fetchMoviePosterForMovie:(JTGMovie *)movie
+                        withBlock:(void(^_Nullable)(UIImage * _Nullable image))block;
 @end

@@ -16,7 +16,10 @@
         _title = dictionary[@"title"];
         _overview = dictionary[@"overview"];
         _rating = dictionary[@"vote_average"];
-        _identifier = dictionary[@"id"];        
+        _identifier = dictionary[@"id"];
+        _homepage = dictionary[@"homepage"];
+        _tagline = dictionary[@"tagline"];
+        _posterPath = dictionary[@"poster_path"];
     }
     return self;
 }
